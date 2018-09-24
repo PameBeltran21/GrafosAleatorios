@@ -1,18 +1,13 @@
 package grafos;
 
-import com.sun.javafx.binding.Logging;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 /**
  *
  * @author Pame Beltran
  */
 public class Erdos {
     
-private HashMap<Integer,Vertice>nodo;
+/*private HashMap<Integer,Vertice>nodo;
 private HashMap<Integer,Arista>arista;
 int NumAristas;
 int NuevasAristas;
@@ -21,9 +16,14 @@ int NuevasAristas;
  * @param NumNodos Numero de nodos 
  * @param NumAristas Numero de aristas
  */
-    public void Erdos(int NumNodos, int NumAristas){
-	this.nodo = new HashMap<Integer, Vertice>();
-        this.arista = new HashMap<Integer,Arista>();
+    public static GrafoCreacion Erdos(int NumNodos, int NumAristas){
+         HashMap<Integer,Vertice>nodo;
+         HashMap<Integer,Arista>arista;
+        Imprime I = new Imprime();
+        
+        int NuevasAristas;
+	nodo = new HashMap<Integer, Vertice>();
+        arista = new HashMap<Integer,Arista>();
 	
         for(int i=0; i< NumNodos; i++){//Creacion de nodos
             nodo.put(i, new Vertice(i));
@@ -62,24 +62,7 @@ int NuevasAristas;
                 }
             }
         }
-        File f = new File("C:\\Users\\Pame Beltran\\Desktop\\grafoErdos-500.gv");
-        String struct = "graph Erdos {\n";
-        Iterator<HashMap.Entry<Integer, Vertice>> it2 = nodo.entrySet().iterator(); 
-        while (it2.hasNext()) {
-            struct += it2.next().getValue().id+ ";\n";
-        }
-        Iterator<HashMap.Entry<Integer, Arista>> it = arista.entrySet().iterator();
-        Iterator<HashMap.Entry<Integer, Arista>> it3 = arista.entrySet().iterator();
-        while (it.hasNext()) {
-            struct += it.next().getValue().getid1()+"--"+it3.next().getValue().getid2()+";\n";
-        }
-        PrintWriter pw;
-        try {
-            pw = new PrintWriter(f);
-            pw.write(struct);
-            pw.close();
-        } catch (FileNotFoundException e) {
-            Logging.getLogger();
-        }
-    }
+        GrafoCreacion g = new GrafoCreacion(nodo, arista);
+        //I.Imprime(nodo,arista);
+        return g;}
 }

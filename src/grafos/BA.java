@@ -1,11 +1,6 @@
 package grafos;
 
-import com.sun.javafx.binding.Logging;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  *
@@ -13,21 +8,26 @@ import java.util.Iterator;
  */
 public class BA {
     
-    private HashMap<Integer,Vertice>nodo;
+    /*private HashMap<Integer,Vertice>nodo;
     private HashMap<Integer,Arista>arista;
     int bandera=0;    
     int NumAristas;
-    double Coordenada;
-    
+    double Coordenada;    
     /**
      * 
      * @param NumNodos Numero de nodos
      * @param Coordenada Es el grado a evaluar
      */       
-    public void BA(int NumNodos, double Coordenada){
-        this.nodo = new HashMap<Integer,Vertice>();
-        this.arista = new HashMap<Integer,Arista>();
-               
+    public static GrafoCreacion BA(int NumNodos, double Coordenada){
+        HashMap<Integer,Vertice>nodo;
+        HashMap<Integer,Arista>arista;
+        Imprime I = new Imprime();
+        int bandera=0;
+        int NumAristas=0;
+        //double Coordenada=0;
+         nodo = new HashMap<Integer, Vertice>();
+        arista = new HashMap<Integer,Arista>();
+	      
         for (int i=0;i<NumNodos;i++){//Creacion de nodos
              nodo.put(i, new Vertice(i));
         }
@@ -53,24 +53,8 @@ public class BA {
                 k++;
             }
         }
-        File f = new File("C:\\Users\\Pame Beltran\\Desktop\\grafoBA-500.gv");
-        String struct = "graph BA {\n";
-        Iterator<HashMap.Entry<Integer, Vertice>> it2 = nodo.entrySet().iterator(); 
-        while (it2.hasNext()) {
-            struct += it2.next().getValue().id+ ";\n";
-        }
-        Iterator<HashMap.Entry<Integer, Arista>> it = arista.entrySet().iterator();
-        Iterator<HashMap.Entry<Integer, Arista>> it3 = arista.entrySet().iterator();
-        while (it.hasNext()) {
-            struct += it.next().getValue().getid1()+"--"+it3.next().getValue().getid2()+";\n";
-        }
-        PrintWriter pw;
-        try {
-            pw = new PrintWriter(f);
-            pw.write(struct);
-            pw.close();
-        } catch (FileNotFoundException e) {
-            Logging.getLogger();
-        }
+        GrafoCreacion g = new GrafoCreacion(nodo, arista);
+       I.Imprime(nodo, arista);
+       return g;
       }
     }

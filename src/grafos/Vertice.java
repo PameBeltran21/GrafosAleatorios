@@ -8,6 +8,7 @@ public class Vertice {
 	public int grado;
         public double x;
         public double y;
+        public boolean visited;
         
     public Vertice(){
         this.grado=0;
@@ -66,5 +67,11 @@ public class Vertice {
     }
     public void sety (double y1){
         this.y=y1;
+    }
+    public void setvisited(boolean visited){
+           this.visited= visited;
+    }
+    public boolean getvisited(){
+          return this.visited;
     }
 }

@@ -12,7 +12,7 @@ public class Arista {
         this.id2=id2;
     }
     public Arista(){
-    
+     
     }
     /////////GETTERS Y SETTERS
     public int getid1(){
