@@ -20,6 +20,7 @@ public class BFS {
         SubCapa1.put(0, g.getNodo().get(0));
         g.getNodo().get(0).setvisited(true);
         int numL = 0,aux = 0;
+        
         CapaPrincipal.put(numL,(HashMap)SubCapa1.clone());
         Vertice.put(0, g.getNodo().get(0));
         

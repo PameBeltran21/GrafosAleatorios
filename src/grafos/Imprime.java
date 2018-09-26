@@ -13,8 +13,7 @@ import java.util.Iterator;
  */
 public class Imprime {
     private HashMap<Integer,Vertice>nodo;
-    private HashMap<Integer,Arista>arista;
-    
+    private HashMap<Integer,Arista>arista;    
     public void Imprime(HashMap<Integer,Vertice>nodo,HashMap<Integer,Arista>arista){
         File f = new File("C:\\Users\\Pame Beltran\\Desktop\\Erdos-500.gv");
         String struct = "graph G {\n";

@@ -21,7 +21,6 @@ public class DFS_R {
         g.getNodo().get(nodoInicial.get_id()).setvisited(true);
         DFSR.getNodo().put(0, new Vertice (g.getNodo().get(nodoInicial.get_id())));   
         for (int i = 0; i < g.getNodo().size(); i++) {
-
             if(AdjMatrix[nodoInicial.get_id()][i]==true && g.getNodo().get(i).getvisited()==false){
                 Regresa=DFS_R(g,g.getNodo().get(i));
                 int aux = DFSR.getNodo().size();

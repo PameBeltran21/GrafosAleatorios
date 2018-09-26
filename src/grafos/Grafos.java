@@ -19,6 +19,7 @@ public class Grafos {
         float conectividad;
         double Coordenada;
         
+        
 	String menu = "\n   Metodos    \n"+
 
     "1.- Erdös y Rényi\n"+
