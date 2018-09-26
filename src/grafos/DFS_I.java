@@ -7,13 +7,13 @@ import java.util.Stack;
  * @author Pame Beltran
  */
 public class DFS_I {
-    public static GrafoCreacion DFS_I(GrafoCreacion g, int nodoInicial){
+    public static GrafoCreacion DFS_I(GrafoCreacion g, Vertice nodoInicial){
         Stack<Integer>stack = new Stack<>();
         HashMap<Integer,Vertice> Vertice = new HashMap();
         HashMap<Integer,Arista> Arista = new HashMap();
         GrafoCreacion DFSI = new GrafoCreacion(Vertice,Arista);
         Imprime I = new Imprime();
-        int j;
+        int j, x=0;
         boolean Visited;
         
         boolean[][] MatriAdj=new boolean[g.getNodo().size()][g.getNodo().size()];
@@ -23,7 +23,7 @@ public class DFS_I {
         }                
         stack.push(g.getNodo().get(0).get_id());
         g.getNodo().get(0).setvisited(true);
-        DFSI.getNodo().put(nodoInicial, new Vertice(g.getNodo().get(0)));
+        DFSI.getNodo().put(x, new Vertice(g.getNodo().get(nodoInicial.get_id())));
              
         while(stack.isEmpty()==false){
             j=stack.peek();
@@ -31,9 +31,9 @@ public class DFS_I {
             for (int i = 0; i < g.getNodo().size(); i++) {
                 if(MatriAdj[j][i]==true && g.getNodo().get(i).getvisited()==false){
                     g.getNodo().get(i).setvisited(true);
-                    DFSI.getArista().put(nodoInicial, new Arista(j,i));
-                    nodoInicial++;
-                    DFSI.getNodo().put(nodoInicial, new Vertice(g.getNodo().get(i)));
+                    DFSI.getArista().put(x, new Arista(j,i));
+                    x++;
+                    DFSI.getNodo().put(x, new Vertice(g.getNodo().get(i)));
                     stack.push(i);
                     Visited=true;
                     i=g.getNodo().size();
@@ -43,8 +43,10 @@ public class DFS_I {
                 }
             }
         }
+        for (int i=0; i<g.getNodo().size();i++){
+            g.getNodo().get(i).setvisited(false);
+        }
         I.ImprimeBusquedaDFSI(Vertice,Arista);
-        //I.ImprimeBusquedaDFSR(Vertice,Arista);
         return DFSI;
     }   
 }

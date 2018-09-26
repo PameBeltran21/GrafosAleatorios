@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author Pame Beltran
  */
 public class BFS {
-    public static GrafoCreacion BFS(GrafoCreacion g, int nodoInicial){
+    public static GrafoCreacion BFS(GrafoCreacion g, Vertice nodoInicial){
             
         Imprime I = new Imprime();
         HashMap<Integer,HashMap> CapaPrincipal = new HashMap();
@@ -23,7 +23,7 @@ public class BFS {
         CapaPrincipal.put(numL,(HashMap)SubCapa1.clone());
         Vertice.put(0, g.getNodo().get(0));
         
-        for(int x = 0;x<=nodoInicial;x++){
+        for(int x = 0;x<=nodoInicial.get_id();x++){
             SubCapa2.clear();
             int num = -1;
             for(int i = 0;i<SubCapa1.size();i++){
@@ -50,8 +50,10 @@ public class BFS {
             SubCapa1=(HashMap)SubCapa2.clone();
             CapaPrincipal.put(numL,(HashMap)SubCapa2.clone());
         }
+        for (int i=0; i<g.getNodo().size();i++){
+            g.getNodo().get(i).setvisited(false);
+        }
         GrafoCreacion BFS = new GrafoCreacion(Vertice,Arista);
-        //I.Imprime(Vertice, Arista);
         I.ImprimeBusquedaBFS(Vertice, Arista);
         return g;}
  }

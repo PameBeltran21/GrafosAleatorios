@@ -63,6 +63,6 @@ int NuevasAristas;
             }
         }
         GrafoCreacion g = new GrafoCreacion(nodo, arista);
-        //I.Imprime(nodo,arista);
+        I.Imprime(nodo,arista);
         return g;}
 }

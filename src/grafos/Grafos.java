@@ -19,11 +19,6 @@ public class Grafos {
         float conectividad;
         double Coordenada;
         
-        /*Erdos M1 = new Erdos();
-        Gilbert M2= new Gilbert();
-        MGS M3= new MGS();
-        BA M4= new BA();*/
-        
 	String menu = "\n   Metodos    \n"+
 
     "1.- Erdös y Rényi\n"+
@@ -45,10 +40,9 @@ public class Grafos {
            NumAristas=Integer.parseInt(JOptionPane.showInputDialog(null, "Cantidad de aristas: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion erdos = Erdos.Erdos(NumNodos, NumAristas);
-           //GrafoCreacion bfserdos = BFS.BFS(erdos, nodoInicial);
-           GrafoCreacion dfsierdos = DFS_I.DFS_I(erdos, nodoInicial);
-           //GrafoCreacion dfsrerdos = DFS_R.DFS_R(erdos, nodoInicial);
-           //M1.Erdos(NumNodos, NumAristas);
+           GrafoCreacion bfserdos = BFS.BFS(erdos, erdos.getNodo().get(nodoInicial));
+           GrafoCreacion dfsierdos = DFS_I.DFS_I(erdos, erdos.getNodo().get(nodoInicial));
+           GrafoCreacion dfsrerdos = DFS_R.DFS_R(erdos, erdos.getNodo().get(nodoInicial));
          break;
          
        case 2: 
@@ -56,11 +50,9 @@ public class Grafos {
            probabilidad = Float.parseFloat(JOptionPane.showInputDialog(null, "Ingrese la probabilidad: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion gilbert = Gilbert.Gilbert(NumNodos, probabilidad);
-           GrafoCreacion bfsgilbert = BFS.BFS(gilbert, nodoInicial);
-           //GrafoCreacion dfsigilbert = DFS_I.DFS_I(gilbert, nodoInicial);
-           //GrafoCreacion dfsrgilbert = DFS_R.DFS_R(gilbert, nodoInicial);
-            //M2.Gilbert(NumNodos, probabilidad);
-           //JOptionPane.showInputDialog(null,"Nodos: "+NumNodos);
+           GrafoCreacion bfsgilbert = BFS.BFS(gilbert, gilbert.getNodo().get(nodoInicial));
+           GrafoCreacion dfsigilbert = DFS_I.DFS_I(gilbert, gilbert.getNodo().get(nodoInicial));
+           GrafoCreacion dfsrgilbert = DFS_R.DFS_R(gilbert, gilbert.getNodo().get(nodoInicial));           
          break;
          
        case 3:
@@ -68,10 +60,9 @@ public class Grafos {
            conectividad = Float.parseFloat(JOptionPane.showInputDialog(null, "Ingrese probabilidad: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion mgs = MGS.MGS(NumNodos, conectividad);
-           GrafoCreacion bfsmgs = BFS.BFS(mgs, nodoInicial);
-           //GrafoCreacion dfsimgs = DFS_I.DFS_I(mgs, nodoInicial);
-           //GrafoCreacion dfsrmgs = DFS_R.DFS_R(mgs, nodoInicial);
-            //M3.MGS(NumNodos,conectividad);
+           GrafoCreacion bfsmgs = BFS.BFS(mgs, mgs.getNodo().get(nodoInicial));
+           GrafoCreacion dfsimgs = DFS_I.DFS_I(mgs, mgs.getNodo().get(nodoInicial));
+           GrafoCreacion dfsrmgs = DFS_R.DFS_R(mgs, mgs.getNodo().get(nodoInicial));
          break;
          
        case 4: 
@@ -79,10 +70,9 @@ public class Grafos {
            Coordenada = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese grado de conexion: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion ba = BA.BA(NumNodos, Coordenada);
-           GrafoCreacion bfsba = BFS.BFS(ba, nodoInicial);
-           //GrafoCreacion dfsiba = DFS_I.DFS_I(ba, nodoInicial);
-           //GrafoCreacion dfsrba = DFS_R.DFS_R(ba, nodoInicial);
-            //M4.BA(NumNodos,Coordenada);
+           GrafoCreacion bfsba = BFS.BFS(ba, ba.getNodo().get(nodoInicial));
+           GrafoCreacion dfsiba = DFS_I.DFS_I(ba, ba.getNodo().get(nodoInicial));
+           GrafoCreacion dfsrba = DFS_R.DFS_R(ba, ba.getNodo().get(nodoInicial));
          break;
                  
        default: JOptionPane.showMessageDialog(null, "Invalido !! ");
