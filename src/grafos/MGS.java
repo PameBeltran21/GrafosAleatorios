@@ -36,7 +36,12 @@ public class MGS {
                             dimension=Math.sqrt((Math.pow(nodo.get(k).getx()-nodo.get(i).getx(), 2)+Math.pow(nodo.get(k).gety()-nodo.get(i).gety(), 2)));
                             if(dimension<=conectividad){
                                 arista.put(NumAristas, new Arista(nodo.get(i).get_id(),nodo.get(k).get_id()));
-                                NumAristas++;
+                                nodo.get(i).AumCoor(1);
+                                nodo.get(i).conectar();
+                       if(k!=i){
+                           nodo.get(k).AumCoor(i);
+                           nodo.get(k).conectar();
+                       }  NumAristas++;
                             }
                         }
                     }

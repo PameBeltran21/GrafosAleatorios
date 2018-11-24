@@ -18,6 +18,7 @@ public class Grafos {
         float  probabilidad;
         float conectividad;
         double Coordenada;
+        Imprime I = new Imprime();
         
         
 	String menu = "\n   Metodos    \n"+
@@ -41,9 +42,12 @@ public class Grafos {
            NumAristas=Integer.parseInt(JOptionPane.showInputDialog(null, "Cantidad de aristas: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion erdos = Erdos.Erdos(NumNodos, NumAristas);
-           GrafoCreacion bfserdos = BFS.BFS(erdos, erdos.getNodo().get(nodoInicial));
-           GrafoCreacion dfsierdos = DFS_I.DFS_I(erdos, erdos.getNodo().get(nodoInicial));
-           GrafoCreacion dfsrerdos = DFS_R.DFS_R(erdos, erdos.getNodo().get(nodoInicial));
+           GrafoCreacion Val1 = new GrafoCreacion(erdos.Valores(0, 50));
+           GrafoCreacion dij1 = new GrafoCreacion(erdos.Dijsktra(erdos.getNodos().get(nodoInicial)));
+           I.ImprimeDijstra("Erdos-500 Dijkstra", dij1);
+           //GrafoCreacion bfserdos = BFS.BFS(erdos, erdos.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsierdos = DFS_I.DFS_I(erdos, erdos.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsrerdos = DFS_R.DFS_R(erdos, erdos.getNodo().get(nodoInicial));
          break;
          
        case 2: 
@@ -51,9 +55,12 @@ public class Grafos {
            probabilidad = Float.parseFloat(JOptionPane.showInputDialog(null, "Ingrese la probabilidad: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion gilbert = Gilbert.Gilbert(NumNodos, probabilidad);
-           GrafoCreacion bfsgilbert = BFS.BFS(gilbert, gilbert.getNodo().get(nodoInicial));
-           GrafoCreacion dfsigilbert = DFS_I.DFS_I(gilbert, gilbert.getNodo().get(nodoInicial));
-           GrafoCreacion dfsrgilbert = DFS_R.DFS_R(gilbert, gilbert.getNodo().get(nodoInicial));           
+           GrafoCreacion Val2 = new GrafoCreacion(gilbert.Valores(0, 50));
+           GrafoCreacion dij2 = new GrafoCreacion(gilbert.Dijsktra(gilbert.getNodos().get(nodoInicial)));
+           I.ImprimeDijstra("Gilbert-500 Dijkstra", dij2);
+           //GrafoCreacion bfsgilbert = BFS.BFS(gilbert, gilbert.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsigilbert = DFS_I.DFS_I(gilbert, gilbert.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsrgilbert = DFS_R.DFS_R(gilbert, gilbert.getNodo().get(nodoInicial));           
          break;
          
        case 3:
@@ -61,9 +68,12 @@ public class Grafos {
            conectividad = Float.parseFloat(JOptionPane.showInputDialog(null, "Ingrese probabilidad: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion mgs = MGS.MGS(NumNodos, conectividad);
-           GrafoCreacion bfsmgs = BFS.BFS(mgs, mgs.getNodo().get(nodoInicial));
-           GrafoCreacion dfsimgs = DFS_I.DFS_I(mgs, mgs.getNodo().get(nodoInicial));
-           GrafoCreacion dfsrmgs = DFS_R.DFS_R(mgs, mgs.getNodo().get(nodoInicial));
+           GrafoCreacion Val3 = new GrafoCreacion(mgs.Valores(0, 50));
+           GrafoCreacion dij3 = new GrafoCreacion(mgs.Dijsktra(mgs.getNodos().get(nodoInicial)));
+           I.ImprimeDijstra("MGS-500 Dijkstra", dij3);
+           //GrafoCreacion bfsmgs = BFS.BFS(mgs, mgs.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsimgs = DFS_I.DFS_I(mgs, mgs.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsrmgs = DFS_R.DFS_R(mgs, mgs.getNodo().get(nodoInicial));
          break;
          
        case 4: 
@@ -71,9 +81,12 @@ public class Grafos {
            Coordenada = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese grado de conexion: "));
            nodoInicial=Integer.parseInt(JOptionPane.showInputDialog(null, "Nodo Inicial: "));
            GrafoCreacion ba = BA.BA(NumNodos, Coordenada);
-           GrafoCreacion bfsba = BFS.BFS(ba, ba.getNodo().get(nodoInicial));
-           GrafoCreacion dfsiba = DFS_I.DFS_I(ba, ba.getNodo().get(nodoInicial));
-           GrafoCreacion dfsrba = DFS_R.DFS_R(ba, ba.getNodo().get(nodoInicial));
+           GrafoCreacion Val4 = new GrafoCreacion(ba.Valores(0, 50));
+           GrafoCreacion dij4 = new GrafoCreacion(ba.Dijsktra(ba.getNodos().get(nodoInicial)));
+           I.ImprimeDijstra("BA-500 Dijkstra", dij4);
+           //GrafoCreacion bfsba = BFS.BFS(ba, ba.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsiba = DFS_I.DFS_I(ba, ba.getNodo().get(nodoInicial));
+           //GrafoCreacion dfsrba = DFS_R.DFS_R(ba, ba.getNodo().get(nodoInicial));
          break;
                  
        default: JOptionPane.showMessageDialog(null, "Invalido !! ");

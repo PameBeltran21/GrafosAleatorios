@@ -36,6 +36,10 @@ public class Gilbert {
                 if(k!=i || bandera==1){
                     if(Math.random()<=probabilidad){
                         arista.put(NumAristas, new Arista(nodo.get(i).get_id(),nodo.get(k).get_id()));
+                        nodo.get(i).conectar();
+                        nodo.get(k).conectar();
+                          if(i!=k){   nodo.get(i).AumCoor(1);    }
+                       nodo.get(k).AumCoor(1);
                         NumAristas++;
                     }
                 }

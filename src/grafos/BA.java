@@ -37,15 +37,16 @@ public class BA {
                 if(k !=i || bandera ==1){
                     if(Math.random()<=1-nodo.get(k).getcoor()/Coordenada){
                         arista.put(NumAristas, new Arista(nodo.get(i).get_id(),nodo.get(k).get_id()));
-                        Vertice nodo1=new Vertice();
+                        nodo.get(i).AumCoor(1);
+                        nodo.get(i).conectar();
+                        /*Vertice nodo1=new Vertice();
                         nodo1.colocarrect(nodo.get(i));
                         nodo1.AumCoor(1);
-                        nodo.put(i, new Vertice (nodo1));
+                        nodo.put(i, new Vertice (nodo1));*/
                         
                         if(k!=i){
-                            nodo1.colocarrect(nodo.get(k));
-                            nodo1.AumCoor(1);
-                            nodo.put(k, new Vertice (nodo1));
+                            nodo.get(k).AumCoor(1);
+                            nodo.get(k).conectar();
                         }
                         NumAristas++;
                     }

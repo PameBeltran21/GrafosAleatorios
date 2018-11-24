@@ -24,12 +24,13 @@ int NuevasAristas;
         int NuevasAristas;
 	nodo = new HashMap<Integer, Vertice>();
         arista = new HashMap<Integer,Arista>();
-	
+	int AristasHechas;
         for(int i=0; i< NumNodos; i++){//Creacion de nodos
             nodo.put(i, new Vertice(i));
         }
         //Generacion aristas Random 
         int L=0, bandera=1;
+        
         int aris1=(int)(Math.random()*NumNodos),aris2=(int)(Math.random()*NumNodos);
         //Asigna al id
         arista.put(0,new Arista(nodo.get(aris1).get_id(),nodo.get(aris2).get_id()));
@@ -38,10 +39,16 @@ int NuevasAristas;
             aris1=(int)(Math.random()*NumNodos);
             aris2=(int)(Math.random()*NumNodos);
             arista.put(0,new Arista(nodo.get(aris1).get_id(),nodo.get(aris2).get_id()));
-        } 
+        }       
+        nodo.get(aris1).conectar();
+        nodo.get(aris2).conectar();
+        if(aris1!=aris2){
+            nodo.get(aris1).AumCoor(1);
+        }
+        nodo.get(aris2).AumCoor(1);
         NuevasAristas = 1;//Aristas creadas
         
-        while(L<NumAristas){
+        while(NuevasAristas<NumAristas){
             aris1=(int)(Math.random()*NumNodos);
             aris2=(int)(Math.random()*NumNodos);
            
@@ -57,8 +64,14 @@ int NuevasAristas;
                  }
                 if (bandera2==1){
                     arista.put(NuevasAristas, new Arista(nodo.get(aris1).get_id(),nodo.get(aris2).get_id()));
-                    NuevasAristas++;
-                    L++;
+                    nodo.get(aris1).conectar();
+                    nodo.get(aris2).conectar();
+                    if(aris1!=aris2){
+                        nodo.get(aris1).AumCoor(1);
+                    }
+                        nodo.get(aris2).AumCoor(1);
+                        NuevasAristas++;                    
+                    //L++;                
                 }
             }
         }
