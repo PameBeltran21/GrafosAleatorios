@@ -5,21 +5,26 @@ import java.util.Collections;
  * @author Pame Beltran
  */
 public class Arista implements Comparable <Arista> {  
+    private int id;
     private int id1;
     private int id2;
     private double w;
+    private boolean f;
     
     public Arista (int id1, int id2){
+        //this.id=id;
         this.id1=id1;
         this.id2=id2;
         this.w=0;
     }
-    public Arista (int id1, int id2, double p){
+    public Arista ( int id1, int id2, double p){
+        //this.id=id;
         this.id1=id1;
         this.id2=id2;
         this.w = p;
     }
     public Arista (Arista a1){
+        //this.id=a1.getid();
         this.id1=a1.getid1();
         this.id2=a1.getid2();
         this.w=a1.getp();
@@ -28,6 +33,9 @@ public class Arista implements Comparable <Arista> {
      
     }
     /////////GETTERS Y SETTERS
+    public int getid(){
+        return this.id;
+    }
     public int getid1(){
         return this.id1;
     }
@@ -40,11 +48,20 @@ public class Arista implements Comparable <Arista> {
     public void setp(double p){
         this.w=p;
     }
+    public void setid(int KeyNodo){
+        this.id=KeyNodo;
+    }
     public void setid1(int KeyNodo){
         this.id1=KeyNodo;
     }
     public void setid2(int KeyNodo){
     this.id2=KeyNodo;
+    }
+    public void setF(boolean a){
+        this.f=a;
+    }
+    public boolean getF(){
+        return this.f;
     }
     public void Copiar (Arista a1){
         this.id1=a1.getid1();

@@ -7,9 +7,10 @@ import java.util.HashMap;
  * @author Pame Beltran
  */
 public class BFS {
-    public static GrafoCreacion BFS(GrafoCreacion G1, Vertice nodoInicial){
+    public static GrafoCreacion BFS(GrafoCreacion g, Vertice nodoInicial){
         
-        GrafoCreacion G = new GrafoCreacion(G1.getNodos(),G1.getAristas());
+        GrafoCreacion G = new GrafoCreacion(g.getNodos(),g.getAristas());
+        GrafoCreacion A = new GrafoCreacion();
         Imprime I = new Imprime();
         HashMap<Integer,HashMap> CapaPrincipal = new HashMap();
         HashMap<Integer,Vertice> SubCapa1 = new HashMap();
@@ -56,11 +57,14 @@ public class BFS {
             SubCapa1=(HashMap)SubCapa2.clone();
             CapaPrincipal.put(numL,(HashMap)SubCapa2.clone());
         }
-        for (int i=0; i<G1.getNodo().size();i++){
-            G1.getNodo().get(i).setvisited(false);
+        for (int i=0; i<g.getNodo().size();i++){
+            g.getNodo().get(i).setvisited(false);
         }
-        GrafoCreacion BFS = new GrafoCreacion(Vertice,Arista);
-        BFS.setG(Vertice, Arista);
-        I.ImprimeBusquedaBFS(Vertice, Arista);
-        return BFS;}
+        //GrafoCreacion BFS = new GrafoCreacion(Vertice,Arista);
+        //BFS.setG(Vertice, Arista);
+        //I.ImprimeBusquedaBFS(Vertice, Arista);
+        //return BFS;
+        A.setG(Vertice, Arista);
+        return A;
+    }
  }

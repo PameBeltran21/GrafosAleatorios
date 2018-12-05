@@ -105,7 +105,7 @@ public class Imprime {
             Logging.getLogger();
         }
     }
-        public void ImprimeDijstra(String nombre, GrafoCreacion g){
+        public void Imprime(String nombre, GrafoCreacion g){
             FileWriter fichero = null;
         PrintWriter pw = null;
                     System.out.println(g.getNodos().size());

@@ -7,7 +7,7 @@ import java.util.Stack;
  * @author Pame Beltran
  */
 public class DFS_I {
-    public static GrafoCreacion DFS_I(GrafoCreacion g, Vertice nodoInicial){
+public static GrafoCreacion DFS_I(GrafoCreacion g, Vertice nodoInicial){
         Stack<Integer>stack = new Stack<>();
         HashMap<Integer,Vertice> Vertice = new HashMap();
         HashMap<Integer,Arista> Arista = new HashMap();
@@ -16,7 +16,7 @@ public class DFS_I {
         int j, x=0;
         boolean Visited;        
         boolean[][] MatriAdj=new boolean[g.getNodo().size()][g.getNodo().size()];
-        
+        //System.out.println(g.getNodo().size());
         for (int i = 0; i < g.getArista().size(); i++) {
             MatriAdj[g.getArista().get(i).getid1()][g.getArista().get(i).getid2()]=true;
             MatriAdj[g.getArista().get(i).getid2()][g.getArista().get(i).getid1()]=true;
@@ -43,7 +43,7 @@ public class DFS_I {
                 }
             }
         }
-        for (int i=0; i<g.getNodo().size();i++){
+       for (int i=0; i<g.getNodo().size();i++){
             g.getNodo().get(i).setvisited(false);
         }
         I.ImprimeBusquedaDFSI(Vertice,Arista);
